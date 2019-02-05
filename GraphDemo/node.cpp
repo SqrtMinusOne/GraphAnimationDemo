@@ -59,9 +59,8 @@ QVariant Node::itemChange(QGraphicsItem::GraphicsItemChange change, const QVaria
 {
     switch (change) {
     case ItemPositionHasChanged:
-        foreach (Edge *edge, edgeList)
+        foreach (Edge *edge, edgeList) //Перерисовать все ребра
             edge->adjust();
-        graph->itemMoved();
         break;
     default:
         break;

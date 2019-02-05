@@ -1,4 +1,4 @@
-#ifndef GRAPHWIDGET_H
+﻿#ifndef GRAPHWIDGET_H
 #define GRAPHWIDGET_H
 
 #include <QGraphicsView>
@@ -10,7 +10,6 @@ class GraphWidget : public QGraphicsView
 
 public:
     GraphWidget(QWidget *parent = nullptr);
-    void itemMoved();
 
     void scaleView(qreal scaleFactor);
 
@@ -21,10 +20,15 @@ public:
     // QWidget interface
     void keyPressEvent(QKeyEvent *event) override;
 
-protected:
-    // QObject interface
-    void timerEvent(QTimerEvent *event) override;
+public slots:
 
+    void startAnimation();
+
+    void stopAnimation();
+
+    void clearAnimations();
+
+protected:
 
     // QGraphicsView interface
     void drawBackground(QPainter *painter, const QRectF &rect) override;
@@ -33,6 +37,7 @@ private:
     QTimer* animationTimer;
 
 private slots:
+
     void processAnimations();
 };
 

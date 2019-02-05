@@ -1,4 +1,4 @@
-#ifndef MAINWINDOW_H
+﻿#ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
 #include <QMainWindow>
@@ -23,6 +23,9 @@ private:
     // QWidget interface
 protected:
     void keyPressEvent(QKeyEvent *event) override;
+private slots:
+    void on_action_exit_triggered();
+    void addAnimations();
 };
 
 #endif // MAINWINDOW_H

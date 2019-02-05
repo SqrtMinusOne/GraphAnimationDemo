@@ -1,4 +1,4 @@
-#ifndef EDGE_H
+﻿#ifndef EDGE_H
 #define EDGE_H
 
 #include "graphwidget.h"
@@ -27,6 +27,8 @@ public:
     void drawAnimatedObjects();
 
     void processAnimations();
+
+    void clearAnimations();
 
     // QGraphicsItem interface
     QRectF boundingRect() const override;
