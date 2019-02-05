@@ -12,13 +12,22 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->mainGraphicsView->setViewport(this->widget);
     Node* node1 = new Node(this->widget);
     Node *node2 = new Node(this->widget);
-    Edge* edge = new Edge(node1, node2, this->widget);
-    node1->setPos(-100, -50);
-    node2->setPos(100, -50);
-    edge->addEllipseAnimation(Qt::black);
+    Node* node3 = new Node(this->widget);
+    Edge* edge1 = new Edge(node1, node2, this->widget);
+    Edge* edge2 = new Edge(node2, node3, this->widget);
+    Edge* edge3 = new Edge(node3, node1, this->widget);
+    node1->setPos(-100, -0);
+    node2->setPos(100, -0);
+    node3->setPos(0, -100);
+    edge1->addEllipseAnimation(Qt::black);
+    edge2->addEllipseAnimation(Qt::red);
+    edge3->addEllipseAnimation(Qt::blue);
     this->widget->scene()->addItem(node1);
     this->widget->scene()->addItem(node2);
-    this->widget->scene()->addItem(edge);
+    this->widget->scene()->addItem(node3);
+    this->widget->scene()->addItem(edge1);
+    this->widget->scene()->addItem(edge2);
+    this->widget->scene()->addItem(edge3);
 }
 
 MainWindow::~MainWindow()
