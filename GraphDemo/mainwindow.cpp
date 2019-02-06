@@ -2,7 +2,7 @@
 #include "mainwindow.h"
 #include "node.h"
 #include "ui_mainwindow.h"
-#include <QRandomGenerator>
+#include <cstdlib>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -57,7 +57,9 @@ void MainWindow::addAnimations()
 {
     /* Добавление анимации на каждое ребро */
     foreach (QGraphicsItem *item, this->widget->scene()->items()) {
-        if (Edge *edge = qgraphicsitem_cast<Edge*>(item))
-            edge->addEllipseAnimation(QColor::fromRgb(QRandomGenerator::global()->generate()));
+        if (Edge *edge = qgraphicsitem_cast<Edge*>(item)){
+            qint32 color = rand();
+            edge->addEllipseAnimation(QColor::fromRgb(color));
+        }
     }
 }
